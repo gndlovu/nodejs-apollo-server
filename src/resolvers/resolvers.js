@@ -1,4 +1,4 @@
-const { request } = require('../../helpers/axios-wrapper');
+const { request } = require('../helpers/axios-wrapper');
 
 exports.resolvers = {
     Query: {

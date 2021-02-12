@@ -13,9 +13,9 @@ exports.typeDefs = gql`
 
     type Query {
         """
-        A random joke.
+        A random joke by category.
         """
-        getRandomJoke(category: String!): Joke,
+        getRandomJokeByCategory(category: String!): Joke,
         """
         A list of joke categories.
         """

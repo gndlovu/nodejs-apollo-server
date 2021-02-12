@@ -14,7 +14,7 @@ class ChucknorrisAPI extends RESTDataSource {
      * @param {string} category
      * @return {Promise}
      */
-    async getRandomJokeByCategory({ category }) {
+    async getRandomJokeByCategory(category) {
         const joke = await this.get('random', { category });
 
         return joke;

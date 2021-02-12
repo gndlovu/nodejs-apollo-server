@@ -6,7 +6,6 @@ exports.typeDefs = gql`
         url: String
         value: String
         icon_url: String
-        category: String
     }
 
     type Query {

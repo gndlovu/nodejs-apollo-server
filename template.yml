@@ -12,6 +12,15 @@ Description: >-
 Transform:
   - AWS::Serverless-2016-10-31
 
+Globals:
+  Function:
+    Runtime: nodejs12.x
+    MemorySize: 128
+    Timeout: 100
+    Environment:
+      Variables:
+        CHUCKNORRIS_API_BASE_URL: "https://api.chucknorris.io/jokes/"
+
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 Resources:
@@ -23,9 +32,6 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/handlers/graphql.graphqlHandler
-      Runtime: nodejs12.x
-      MemorySize: 128
-      Timeout: 100
       Description: A Lambda function that handles all API requests.
       Events:
         AnyRequest:

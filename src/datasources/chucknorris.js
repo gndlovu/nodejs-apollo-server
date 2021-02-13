@@ -6,7 +6,7 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 class ChucknorrisAPI extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = 'https://api.chucknorris.io/jokes/';
+        this.baseURL = process.env.CHUCKNORRIS_API_BASE_URL;
     }
 
     /**

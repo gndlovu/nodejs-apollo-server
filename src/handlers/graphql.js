@@ -7,9 +7,16 @@ const { typeDefs } = require('../schema/type-defs');
 const apolloServer = new ApolloServer({ 
     resolvers, 
     typeDefs,
+    // playground: true,
+    // introspection: true,
     dataSources: () => ({ 
         chucknorrisAPI: new ChucknorrisAPI()
     })
 });
 
-exports.graphqlHandler = apolloServer.createHandler();
+exports.graphqlHandler = apolloServer.createHandler({
+    cors: {
+        origin: process.env.CORS_ORIGIN_URL,
+        credentials: false,
+    }
+});

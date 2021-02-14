@@ -1,12 +1,13 @@
-const { RESTDataSource } = require('apollo-datasource-rest');
+import { RESTDataSource } from 'apollo-datasource-rest';
+import { environment } from '../environment';
 
 /**
  * ChucknorrisAPI class
  */
-class ChucknorrisAPI extends RESTDataSource {
+export class ChucknorrisAPI extends RESTDataSource {
     constructor() {
         super();
-        this.baseURL = process.env.CHUCKNORRIS_API_BASE_URL;
+        this.baseURL = environment.apiBaseUrl;
     }
 
     /**
@@ -14,7 +15,7 @@ class ChucknorrisAPI extends RESTDataSource {
      * @param {string} category
      * @return {Promise}
      */
-    async getRandomJokeByCategory(category) {
+    async getRandomJokeByCategory(category: string) {
         const joke = await this.get('random', { category });
 
         return joke;
@@ -27,9 +28,7 @@ class ChucknorrisAPI extends RESTDataSource {
      */
     async getCategories() {
         const categories = await this.get('categories');
-        
+
         return categories;
     }
 }
-  
-  module.exports = ChucknorrisAPI;

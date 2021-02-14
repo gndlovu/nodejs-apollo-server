@@ -20,6 +20,7 @@ Globals:
     Environment:
       Variables:
         CHUCKNORRIS_API_BASE_URL: "https://api.chucknorris.io/jokes/"
+        CORS_ORIGIN_URL: "http://localhost:3000"
 
 # Resources declares the AWS resources that you want to include in the stack
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
